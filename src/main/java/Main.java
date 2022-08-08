@@ -25,5 +25,19 @@ public class Main {
             System.out.println("Entered index don't exists in this array");
         }
 
+
+        //this is one example of checked exception
+        System.out.println("If you want to try ClassNotFoundException enter number 1, else press enter for exit");
+        int num = scanner.nextInt();
+        if (num == 1){
+        try {
+            Class.forName("NonExistenceClass");
+            ClassLoader.getSystemClassLoader().loadClass("NonExistenceClass");
+        }catch (ClassNotFoundException e){
+            System.out.println(e);
+            System.out.println("This class don't exists");
+        }}else
+            System.out.println("Bye :)");
+
     }
 }
