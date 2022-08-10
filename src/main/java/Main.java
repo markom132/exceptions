@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     static Scanner scanner = new Scanner(System.in);
 
-    public static void getFile(String fileName) throws NonExistentFileExtensionException {
+    public static void getFile(String fileName) {
 
         //this is my checked exception, where I tried to read file witch don't exists
         try (Scanner file = new Scanner(new File(fileName))) {
