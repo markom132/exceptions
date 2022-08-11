@@ -15,12 +15,7 @@ public class Main {
         } catch (FileNotFoundException err) {
             //idk is this way okay or not, this will print WrongFileExceptionMessage, I tried to handle this problem o this way, I doubt it is a good idea,but it is only one for now
             if (!isNameCorrect(fileName)) {
-                WrongFileNameException wrongFileNameException = new WrongFileNameException("File with name : " + fileName + " does not exists");
-                System.out.println(wrongFileNameException.getMessage());
-                System.out.println(err);
-                System.out.println();
-                //if we comment previous four lines and uncomment the ne after this comment, that will throw
-                //throw new WrongFileNameException("Wrong file name : " + fileName, err);
+                throw new WrongFileNameException("Wrong file name : " + fileName, err);
             }
         }
     }
@@ -76,14 +71,7 @@ public class Main {
                     }
 
                 } catch (NegativeArraySizeException exc) {
-                    //I commented this and used instance of this exception to print messages because I didn't want to that exception break app, but if uncomment line
-                    //after this, soo it can throw exception
-                    //throw new ArrayLenghtCantBeNegative("Array lenght should be positive ", exc);
-                    ArrayLenghtCantBeNegative arrayLenghtCantBeNegative = new ArrayLenghtCantBeNegative("Array with negative size can't be created", exc);
-                    System.out.println(arrayLenghtCantBeNegative.getMessage());
-                    System.out.println(arrayLenghtCantBeNegative.getCause());
-                    System.out.println();
-
+                    throw new ArrayLenghtCantBeNegative("Array lenght should be positive ", exc);
                 }
 
             } else if (num2 == 3) {
